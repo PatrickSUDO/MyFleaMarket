@@ -1,4 +1,4 @@
-package com.zhijieketang.db.core;
+package com.myfleamarket.db.core;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,4 +1,4 @@
-package com.myfleamarket.store.dao.imp;
+package com.myfleamarket.store.dao;
 
 import com.myfleamarket.store.domain.Orders;
 

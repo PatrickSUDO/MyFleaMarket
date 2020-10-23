@@ -1,4 +1,4 @@
-package com.zhijieketang.db.core;
+package com.myfleamarket.db.core;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,4 +1,4 @@
-package com.zhijieketang.db.core;
+package com.myfleamarket.db.core;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,6 +19,7 @@ public class DBHelp {
             // load config
             info.load(in);
         } catch (IOException e) {
+            System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }
