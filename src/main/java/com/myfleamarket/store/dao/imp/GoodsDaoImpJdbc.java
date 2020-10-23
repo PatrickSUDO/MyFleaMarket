@@ -47,7 +47,7 @@ public class GoodsDaoImpJdbc implements GoodsDao {
             PreparedStatement ps = conn.prepareStatement(sql);
             return ps;
         }, rs -> populate(list, rs));
-        return null;
+        return list;
     }
 
     private void populate(List<Goods> list, ResultSet rs) throws SQLException {
@@ -73,8 +73,8 @@ public class GoodsDaoImpJdbc implements GoodsDao {
         List<Goods> list = new ArrayList<>();
         StringBuffer sql = new StringBuffer("select id,name,price,description,brand," +
                 "cpu_brand,cpu_type,memory_capacity,hd_capacity,card_model,displaysize,image from Goods");
-        sql.append("LIMIT ").append(end - start);
-        sql.append("OFFSET ").append(start);
+        sql.append(" LIMIT ").append(end - start);
+        sql.append(" OFFSET ").append(start);
 
         jdbcTemplate.query(conn -> {
             PreparedStatement ps = conn.prepareStatement(sql.toString());
@@ -92,7 +92,7 @@ public class GoodsDaoImpJdbc implements GoodsDao {
                 "cpu_type,memory_capacity,hd_capacity,card_model,displaysize,image)" +
                 " values (?,?,?,?,?,?,?,?,?,?,?,?)";
 
-        jdbcTemplate.query(conn -> {
+        jdbcTemplate.update(conn -> {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setLong(1, goods.getId());
             ps.setString(2, goods.getName());
@@ -107,8 +107,6 @@ public class GoodsDaoImpJdbc implements GoodsDao {
             ps.setString(11, goods.getDisplaysize());
             ps.setString(12, goods.getImage());
             return ps;
-        }, rs -> {
-
         });
     }
 
