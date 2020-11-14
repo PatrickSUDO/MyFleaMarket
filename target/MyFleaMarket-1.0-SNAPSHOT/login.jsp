@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
 <head>
@@ -32,8 +32,8 @@
     </tr>
     <tr height="40">
       <td align="right">&nbsp;</td>
-      <td><input type="image" src="images/login_button.jpg" onclick="document.forms[0].fn.value='login'"/>
-        &nbsp;&nbsp;&nbsp;&nbsp; <a href="controller?action=reg_init"><img src="images/reg_button.jpg" border="0"/></a>
+      <td><button value="login" onclick="document.forms[0].fn.value='login'"/>Login</button>
+        &nbsp;&nbsp;&nbsp;&nbsp; <button><a href="controller?action=reg_init">Register</a></button>
       </td>
     </tr>
   </table>

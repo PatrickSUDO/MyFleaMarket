@@ -117,7 +117,7 @@
     </table>
     <br>
     <div align="center">
-        <input type="image" src="images/submit_button.jpg" />
+        <input type="submit" />
     </div>
     <input type="hidden" name="action" value="reg" >
     <form/>

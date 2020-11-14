@@ -73,7 +73,7 @@
     <jsp:param name="image" value="mycar.jpg" />
 </jsp:include>
 <hr width="100%"/>
-<div class="text3" align="center">Item</div>
+<div class="text3" align="center">Shopping Cart</div>
 <br>
 <form action="controller" method="post">
     <table width="100%" border="0" align="center" class="threeboder">
@@ -104,7 +104,7 @@
     <br>
     <div align="center">
         <c:if test="${not empty cart}">
-            <input type="image" src="images/submit_order.jpg" border="0">&nbsp;&nbsp;
+            <input type="submit" src="images/submit_order.jpg" border="0">&nbsp;&nbsp;
         </c:if>
     </div>
     <input type="hidden" name="action" value="sub_ord">
