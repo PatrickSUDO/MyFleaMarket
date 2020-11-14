@@ -9,6 +9,15 @@
     </properties>
     <root id="archive" name="MyStore-1.0-SNAPSHOT.war">
       <element id="artifact" artifact-name="MyFleaMarket:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="javaEE8" />
+          <element id="library" level="project" name="standard" />
+        </element>
+        <element id="directory" name="classes">
+          <element id="jpa-descriptors" facet="MyFleaMarket/jpa/JPA" />
+        </element>
+      </element>
     </root>
   </artifact>
 </component>

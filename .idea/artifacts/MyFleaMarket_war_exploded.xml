@@ -12,6 +12,11 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="MyFleaMarket" />
+          <element id="jpa-descriptors" facet="MyFleaMarket/jpa/JPA" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="javaEE8" />
+          <element id="library" level="project" name="standard" />
         </element>
       </element>
       <element id="directory" name="META-INF">
