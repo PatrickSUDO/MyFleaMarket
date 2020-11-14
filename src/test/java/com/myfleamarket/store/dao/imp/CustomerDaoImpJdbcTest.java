@@ -40,7 +40,7 @@ class CustomerDaoImpJdbcTest {
     @Test
     void findAll() {
         List<Customer> list = dao.findAll();
-        assertEquals(list.size(), 1);
+        assertEquals(list.size(), 2);
     }
 
     @Test

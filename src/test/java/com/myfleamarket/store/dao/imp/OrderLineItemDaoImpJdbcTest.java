@@ -40,7 +40,7 @@ class OrderLineItemDaoImpJdbcTest {
     @Test
     void findAll() {
         List<OrderLineItem> list = dao.findAll();
-        assertEquals(2, list.size());
+        assertEquals(1, list.size());
 
         OrderLineItem lineItem = list.get(1);
         assertNotNull(lineItem);

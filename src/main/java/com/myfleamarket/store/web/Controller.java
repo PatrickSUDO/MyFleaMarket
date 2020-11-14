@@ -138,7 +138,7 @@ public class Controller extends HttpServlet {
             if (currentPage == totalPageNumber) {
                 end = goodsList.size();
             }
-            request.setAttribute("goodsList", goodsList);
+            request.setAttribute("goodsList", goodsList.subList(start, end));
             request.getRequestDispatcher("goods_list.jsp").forward(request, response);
 
         } else if ("paging".equals(action)) {
@@ -220,17 +220,37 @@ public class Controller extends HttpServlet {
                 int end = currentPage * pageSize;
 
                 List<Goods> goodsList = goodsService.queryByStartEnd(start, end);
+
                 request.setAttribute("totalPageNumber", totalPageNumber);
                 request.setAttribute("currentPage", currentPage);
                 request.setAttribute("goodsList", goodsList);
                 request.getRequestDispatcher("goods_list.jsp").forward(request, response);
-            } else if (pagename.equals("detial")) {
+
+            } else if (pagename.equals("detail")) {
 
                 Goods goods = goodsService.goodDetail(new Long(goodsId));
                 request.setAttribute("goods", goods);
                 request.getRequestDispatcher("goods_detail.jsp").forward(request, response);
             }
+        } else if ("cart".equals(action)) {
+            //---------查看购物车---------
+            // 从Session中取出的购物车
+            List<Map<String, Object>> cart = (List<Map<String, Object>>) request.getSession().getAttribute("cart");
 
+            double total = 0.0;
+
+            if (cart != null) {
+                for (Map<String, Object> item : cart) {
+
+                    Integer quantity = (Integer) item.get("quantity");
+                    Float price = (Float) item.get("price");
+                    double subtotal = price * quantity;
+                    total += subtotal;
+                }
+            }
+
+            request.setAttribute("total", total);
+            request.getRequestDispatcher("cart.jsp").forward(request, response);
         } else if ("sub_ord".equals(action)) {
             //submit order
             List<Map<String, Object>> cart = (List<Map<String, Object>>) request.getSession().getAttribute("cart");
